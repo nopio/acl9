@@ -38,7 +38,8 @@ module Acl9
         join_table = options[:join_table_name] || Acl9::config[:default_join_table_name] ||
                     join_table_name(undecorated_table_name(self.to_s), undecorated_table_name(role))
 
-        has_and_belongs_to_many assoc, :class_name => role, :join_table => join_table
+        has_many join_table, :class_name => join_table.split('_').map{|w| w.capitalize}.join
+        has_many assoc, :through => join_table, :source => role.demodulize.underscore.to_sym
 
         cattr_accessor :_auth_role_class_name, :_auth_subject_class_name,
                        :_auth_role_assoc_name
@@ -130,9 +131,8 @@ module Acl9
         join_table = options[:join_table_name] || Acl9::config[:default_join_table_name] ||
                      join_table_name(undecorated_table_name(self.to_s), undecorated_table_name(subject))
 
-        has_and_belongs_to_many subject.demodulize.tableize.to_sym,
-          :class_name => subject,
-          :join_table => join_table
+        has_many join_table, :class_name => join_table.split('_').map{|w| w.capitalize}.join
+        has_many subject.demodulize.tableize.to_sym, :through => join_table, :source => subject.demodulize.underscore.to_sym
 
         belongs_to :authorizable, :polymorphic => true
       end

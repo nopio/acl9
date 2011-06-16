@@ -1,3 +1,9 @@
+h2. 0.12.1 (17-06-2011)
+
+A quick update to fix deprication errors when running on Rails 3
+
+* NOTE: This changes is not fully tested. Enjoy responsibly.
+
 h2. 0.12.0 (04-Jan-2010)
 
 An anniversary release of fixes and hacks, introduced by venerable users of the plugin.
