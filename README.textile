@@ -53,7 +53,7 @@ h1. Installation
 
 Acl9 can be installed by adding this line to your Gemfile:
 
-gem "acl9", :git => http://nopio@github.com/nopio/acl9.git
+gem 'acl9', :git => 'git://github.com/nopio/acl9.git'
 
 Alternatively you can install Acl9 as a plugin:
 
