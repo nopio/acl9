@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{acl9}
-  s.version = "0.12.1"
+  s.version = "0.12.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["oleg dashevskii"]
@@ -18,6 +18,8 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     "CHANGELOG.textile",
+    "Gemfile",
+    "Gemfile.lock",
     "MIT-LICENSE",
     "README.textile",
     "Rakefile",
@@ -63,10 +65,12 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<be9-context>, [">= 0.5.5"])
       s.add_development_dependency(%q<jnunemaker-matchy>, [">= 0.4.0"])
-      s.add_development_dependency(%q<activesupport>, ["= 2.3.10"])
-      s.add_development_dependency(%q<activerecord>, ["= 2.3.10"])
-      s.add_development_dependency(%q<actionpack>, ["= 2.3.10"])
-      s.add_development_dependency(%q<rake>, ["= 0.9.2"])
+      s.add_development_dependency(%q<activesupport>, [">= 2.3.10"])
+      s.add_development_dependency(%q<activerecord>, [">= 2.3.10"])
+      s.add_development_dependency(%q<actionpack>, [">= 2.3.10"])
+      s.add_development_dependency(%q<rake>, [">= 0.9.2"])
+      s.add_development_dependency(%q<jeweler>, [">= 1.5.2"])
+      s.add_development_dependency(%q<be9-context>, [">= 0.5.5"])
     else
       s.add_dependency(%q<be9-context>, [">= 0.5.5"])
       s.add_dependency(%q<jnunemaker-matchy>, [">= 0.4.0"])

@@ -1,5 +1,6 @@
 module Acl9
   module Helpers
+
     def self.included(base)
       base.extend ClassMethods
     end
