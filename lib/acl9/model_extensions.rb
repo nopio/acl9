@@ -136,6 +136,13 @@ module Acl9
 
         belongs_to :authorizable, :polymorphic => true
       end
+
+      def acts_as_authorization_join params
+        if params[:role_class_name].present? && params[:subject_class_name].present?
+          belongs_to params[:role_class_name].demodulize.underscore.to_sym
+          belongs_to params[:subject_class_name].demodulize.underscore.to_sym
+        end
+      end
     end
   end
 end

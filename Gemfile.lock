@@ -1,0 +1,30 @@
+PATH
+  remote: .
+  specs:
+    acl9 (0.12.1)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    actionpack (2.3.10)
+      activesupport (= 2.3.10)
+      rack (~> 1.1.0)
+    activerecord (2.3.10)
+      activesupport (= 2.3.10)
+    activesupport (2.3.10)
+    be9-context (0.5.5)
+    jnunemaker-matchy (0.4.0)
+    rack (1.1.0)
+    rake (0.9.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  acl9!
+  actionpack (= 2.3.10)
+  activerecord (= 2.3.10)
+  activesupport (= 2.3.10)
+  be9-context (>= 0.5.5)
+  jnunemaker-matchy (>= 0.4.0)
+  rake (= 0.9.2)

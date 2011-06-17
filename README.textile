@@ -167,6 +167,16 @@ there should be a join table:
   end
 </code></pre>
 
+h2. Join model "roles_users"
+
+Place @acts_as_authorization_join@ call inside of the model.
+
+<pre><code>
+  class RolesUsers < ActiveRecord::Base
+    acts_as_authorization_join :role_class_name => "Role", :subject_class_name => "User"
+  end
+</code></pre>
+
 h2. Object model
 
 Place @acts_as_authorization_object@ call inside any model you want to act

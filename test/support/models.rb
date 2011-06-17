@@ -6,12 +6,16 @@ class User < ActiveRecord::Base
   acts_as_authorization_subject
 end
 
+class RolesUsers < ActiveRecord::Base
+  acts_as_authorization_join :role_class_name => 'Role', :subject_class_name => 'User'
+end
+
 class Foo < ActiveRecord::Base
   acts_as_authorization_object
 end
 
 class Uuid < ActiveRecord::Base
-  set_primary_key "uuid"  
+  set_primary_key "uuid"
   acts_as_authorization_object
 end
 
@@ -23,6 +27,10 @@ class AnotherSubject < ActiveRecord::Base
   acts_as_authorization_subject :role_class_name => 'AnotherRole'
 end
 
+class AnotherRolesAnotherSubjects < ActiveRecord::Base
+  acts_as_authorization_join :role_class_name => "AnotherRole", :subject_class_name => "AnotherSubject"
+end
+
 class AnotherRole < ActiveRecord::Base
   acts_as_authorization_role :subject_class_name => "AnotherSubject"
 end
@@ -32,11 +40,16 @@ class FooBar < ActiveRecord::Base
 end
 
 class DifferentAssociationNameSubject < ActiveRecord::Base
-	acts_as_authorization_subject :association_name => 'roles', :role_class_name => "DifferentAssociationNameRole"
+  acts_as_authorization_subject :association_name => 'roles', :role_class_name => "DifferentAssociationNameRole"
+end
+
+class DifferentAssociationNameRolesDifferentAssociationNameSubjects < ActiveRecord::Base
+  acts_as_authorization_join :role_class_name => "DifferentAssociationNameRole",
+                             :subject_class_name => "DifferentAssociationNameSubject"
 end
 
 class DifferentAssociationNameRole < ActiveRecord::Base
-	acts_as_authorization_role :subject_class_name => "DifferentAssociationNameSubject"
+  acts_as_authorization_role :subject_class_name => "DifferentAssociationNameSubject"
 end
 
 module Other
@@ -49,6 +62,10 @@ module Other
   class Other::Role < ActiveRecord::Base
     set_table_name "other_roles"
     acts_as_authorization_role :join_table_name => "other_roles_other_users", :subject_class_name => "Other::User"
+  end
+
+  class Other::OtherRolesOtherUsers < ActiveRecord::Base
+    acts_as_authorization_join :role_class_name => "Other::Role", :subject_class_name => "Other::User"
   end
 
   class Other::FooBar < ActiveRecord::Base
