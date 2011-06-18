@@ -1,13 +1,14 @@
-h2. 0.12.2 (17-06-2011)
+h2. 0.12.2 (18-06-2011)
 
 Further Rails3 updates
 
 * Bundler integration
 * Fixed join_table tests to pass with updated structure
+* Still few deprecation warnings left when running tests
 
 h2. 0.12.1 (17-06-2011)
 
-A quick update to fix deprication errors when running on Rails 3
+A quick update to fix deprecation errors when running on Rails 3
 
 * NOTE: This changes is not fully tested. Enjoy responsibly.
 
